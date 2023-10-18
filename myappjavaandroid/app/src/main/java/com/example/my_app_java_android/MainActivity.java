@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void ClearHandler(View view) {
         txtResult.setText("");
         txtOperations.setText("");
+        currentOperation = "";
     }
 
     public void CalculateHandler(View view) {
