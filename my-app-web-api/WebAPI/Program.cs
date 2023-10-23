@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using WebAPI.Data;
+using WebAPI.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AppEFContext>(opt =>
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("WebApiConnection")));
 
 // Add services to the container.
 
@@ -8,6 +14,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(typeof(AppMapProfile));
 
 var app = builder.Build();
 
@@ -36,5 +44,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.SeedData();
 
 app.Run();
