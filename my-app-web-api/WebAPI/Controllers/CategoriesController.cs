@@ -10,15 +10,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class CategoriesController(AppEFContext appEFContext, IMapper mapper) : ControllerBase
     {
-        private readonly AppEFContext _appEFContext;
-        private readonly IMapper _mapper;
-        public CategoriesController(AppEFContext appEFContext, IMapper mapper)
-        {
-            _appEFContext = appEFContext;
-            _mapper = mapper;
-        }
+        private readonly AppEFContext _appEFContext = appEFContext;
+        private readonly IMapper _mapper = mapper;
+
         [HttpGet("list")]
         public async Task<IActionResult> Index()
         {
