@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.my_app_java_android.category.CategoriesAdapter;
+import com.example.my_app_java_android.category.CategoryCreateActivity;
 import com.example.my_app_java_android.dto.category.CategoryItemDTO;
 import com.example.my_app_java_android.services.ApplicationNetwork;
 
@@ -46,5 +49,12 @@ public class CategoriesActivity extends AppCompatActivity {
 
                     }
                 });
+
+    }
+
+    public void onClickGoToCreateCategory(View view) {
+        Intent intent = new Intent(CategoriesActivity.this, CategoryCreateActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
