@@ -1,8 +1,10 @@
 package com.example.my_app_java_android.dto.category;
 
+import android.graphics.drawable.Drawable;
+
 public class CategoryCreateDTO {
     private String name;
-    private String image;
+    private Drawable image;
     private String description;
 
     public String getName() {
@@ -13,11 +15,11 @@ public class CategoryCreateDTO {
         this.name = name;
     }
 
-    public String getImage() {
+    public Drawable getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Drawable image) {
         this.image = image;
     }
 
