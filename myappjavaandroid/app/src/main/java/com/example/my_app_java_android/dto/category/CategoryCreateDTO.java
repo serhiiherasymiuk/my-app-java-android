@@ -2,32 +2,36 @@ package com.example.my_app_java_android.dto.category;
 
 import android.graphics.drawable.Drawable;
 
-public class CategoryCreateDTO {
-    private String name;
-    private Drawable image;
-    private String description;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.http.Multipart;
 
-    public String getName() {
+public class CategoryCreateDTO {
+    private RequestBody name;
+    private MultipartBody image;
+    private RequestBody description;
+
+    public RequestBody getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(RequestBody name) {
         this.name = name;
     }
 
-    public Drawable getImage() {
+    public MultipartBody getImage() {
         return image;
     }
 
-    public void setImage(Drawable image) {
+    public void setImage(MultipartBody image) {
         this.image = image;
     }
 
-    public String getDescription() {
+    public RequestBody getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(RequestBody description) {
         this.description = description;
     }
 }

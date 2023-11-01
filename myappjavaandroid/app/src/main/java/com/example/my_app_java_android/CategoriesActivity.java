@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.view.View;
 
 import com.example.my_app_java_android.category.CategoriesAdapter;
@@ -13,6 +15,7 @@ import com.example.my_app_java_android.category.CategoryCreateActivity;
 import com.example.my_app_java_android.dto.category.CategoryItemDTO;
 import com.example.my_app_java_android.services.ApplicationNetwork;
 
+import java.io.Console;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,7 +49,7 @@ public class CategoriesActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<CategoryItemDTO>> call, Throwable t) {
-
+                        Log.e("Error", t.getMessage());
                     }
                 });
 

@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
-                android:text="Назва"
+                android:text="Name"
                 android:textSize="18dp"
                 />
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/categories")]
     [ApiController]
     public class CategoriesController(AppEFContext appEFContext, IMapper mapper) : ControllerBase
     {
