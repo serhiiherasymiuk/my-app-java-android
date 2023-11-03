@@ -1,5 +1,5 @@
 package com.example.my_app_java_android.category;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.my_app_java_android.BaseActivity;
 import com.example.my_app_java_android.CategoriesActivity;
 import com.example.my_app_java_android.R;
 import com.example.my_app_java_android.application.HomeApplication;
@@ -35,7 +36,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CategoryCreateActivity extends AppCompatActivity {
+public class CategoryCreateActivity extends BaseActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private String filePath;

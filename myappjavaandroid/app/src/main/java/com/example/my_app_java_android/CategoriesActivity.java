@@ -22,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CategoriesActivity extends AppCompatActivity {
+public class CategoriesActivity extends BaseActivity {
 
     RecyclerView rcCategories;
     @Override
