@@ -1,12 +1,24 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using WebAPI.Data;
+using WebAPI.Data.Entities.Identity;
 using WebAPI.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppEFContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("WebApiConnection")));
+
+builder.Services.AddIdentity<UserEntity, RoleEntity>(options =>
+{
+    options.Stores.MaxLengthForKeys = 128;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 5;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+}).AddEntityFrameworkStores<AppEFContext>().AddDefaultTokenProviders();
 
 // Add services to the container.
 
