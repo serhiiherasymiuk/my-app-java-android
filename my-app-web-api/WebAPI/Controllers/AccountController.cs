@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Constants;
 using WebAPI.Data.Entities.Identity;
+using WebAPI.Helpers;
 using WebAPI.Models.Account;
 
 namespace WebAPI.Controllers
@@ -19,12 +20,20 @@ namespace WebAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserViewModel model)
         {
-            UserEntity user = new UserEntity()
+            string imageName = null;
+
+            if (!string.IsNullOrEmpty(model.ImageBase64))
+            {
+                imageName = ImageWorker.SaveImage(model.ImageBase64);
+            }
+
+            UserEntity user = new()
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 UserName = model.Email,
-                Email = model.Email
+                Email = model.Email,
+                Image = imageName,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
